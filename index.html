@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/sidebar/logo.svg">
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Year', 'Today', 'Yesterday'],
+        ['19/2020',  1000,      400],
+        ['20/2020',  1170,      460],
+        ['21/2020',  660,       1120],
+        ['22/2020',  1030,      540]
+      ]);
+
+      var options = {
+        title: 'Todays Trends',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+      chart.draw(data, options);
+
+    }
+  </script>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawVisualization);
+
+    function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+        ['Month', 'Oyo', 'Abuja', 'Port-har-Court', 'Lagos', 'Osun', 'Average'],
+        ['04/2020',  165,      938,         522,             998,           450,      614.6],
+        ['05/2020',  135,      1120,        599,             1268,          288,      682],
+        ['06/2020',  157,      1167,        587,             807,           397,      623],
+        ['07/2020',  139,      1110,        615,             968,           215,      609.4],
+        ['08/2020',  136,      691,         629,             1026,          366,      569.6]
+        ]);
+
+        var options = {
+        title : 'Monthly Revenue',
+        vAxis: {title: 'Income'},
+        hAxis: {title: 'Month'},
+        seriesType: 'bars',
+        series: {5: {type: 'line'}}        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+  </script>
+
+  
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <title> Bank Admin Dashboard </title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+
+</head>
+<body>
+
+    <aside class="aside ">
+        <div class="logo">
+            <a href="#"> <img src="images/sidebar/logo.svg" alt=""> Admin Board</a>
+        </div>
+        <ul>
+            <li> <img src="images/sidebar/active/1. overview.svg" alt=""> <a href="#"> Dashboard </a></li>
+            <li> <img src="images/sidebar/inactive/2. tickets.svg" alt=""> <a href="#"> Tickets </a></li>
+            <li> <img src="images/sidebar/inactive/3. ideas.svg" alt=""> <a href="#"> Ideas </a></li>
+            <li> <img src="images/sidebar/inactive/4. contacts.svg" alt=""> <a href="#"> Contacts </a></li>
+            <li> <img src="images/sidebar/inactive/5. agents.svg" alt=""> <a href="#"> Agents </a></li>
+            <li> <img src="images/sidebar/inactive/6. articles.svg" alt=""> <a href="#"> Articles </a></li>
+            <hr>
+            <li> <img src="images/sidebar/inactive/a_1. settings.svg" alt=""> <a href="#"> Settings </a></li>
+            <li> <img src="images/sidebar/inactive/a_2. subscription.svg" alt=""> <a href="#"> Subscription </a></li>
+        </ul>
+    </aside>
+
+    <div class="not_aside">
+        <header>
+            
+            <nav>
+                <div class="move_nav_left">
+                    <div class="menu_icon outicon"> </div>
+                    <p class="dashboard">Dashboard</p>
+                </div>
+
+                <div class="move_nav_center">
+                    <div class="search_bar">
+                        <input type="search" name="Search" placeholder="Search Keyword" id="Search" class="search">
+                        <div class="search_icon"><img src="images/header/search.svg" alt="Search"></div>
+                    </div>
+                    <div class="notification_icon"><img src="images/header/notification.svg" alt="notification"></div>
+                </div>
+
+                <div class="move_nav_right"> 
+                    <p class="name"> John Doe </p> 
+                    <div class="photo_icon"><img src="images/header/photo.png" alt=""></div>
+                </div>
+            </nav>
+
+        </header>
+
+
+        <main>
+            <div class="main_item" id="user">
+                <span> 350 </span>
+                <small> New Users</small>
+                <img src="images/body/User 24px.svg" alt="User" width="50px" height="50px">
+            </div>
+
+            <div class="main_item" id="wallet">
+                <span> 735 </span>
+                <small> Total Expenses</small>
+                <img src="images/body/wallet.svg" alt="wallet" width="50px" height="50px">
+            </div>
+
+            <div class="main_item" id="revenue">
+                <span> 89.6% </span>
+                <small> Total Revenue</small>
+                <img src="images/body/pie-chart.svg" alt="pie-chart" width="50px" height="50px">
+            </div>
+
+            <div class="main_item" id="orders">
+                <span> 120 </span>
+                <small> Total Orders</small>
+                <img src="images/body/shopping-cart (2).svg" alt="shopping-cart" width="50px" height="50px">
+            </div>
+        </main>
+
+        <div class="chart_diagrams">
+            <div class="chart_diagram_container">
+                <div id="curve_chart" class="chart_diagram_space"></div>
+                <div id="chart_div" class="chart_diagram_space"></div>
+            </div>
+        </div>
+
+        <div class="table_container">
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Account</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>19/08/2020</td>
+                    <td>John Doe</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                    <td>Savings</td>
+                    <td>Approved</td>
+                </tr>
+
+                <tr>
+                    <td>19/08/2020</td>
+                    <td>John Doe</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                    <td>Current</td>
+                    <td>Approved</td>
+                </tr>
+
+                <tr>
+                    <td>19/08/2020</td>
+                    <td>John Doe</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                    <td>Fast Savings</td>
+                    <td>Approved</td>
+                </tr>
+
+                <tr class="pending">
+                    <td>19/08/2020</td>
+                    <td>John Doe</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                    <td>Savings</td>
+                    <td>Pending</td>
+                </tr>
+
+            </table>
+
+            
+            <button> Load more </button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
